@@ -9,12 +9,11 @@ const Buttonlist = () => {
      
       
     {
-
-      Object.values(popular).map(items =>{
+       Object.values(popular).map(item =>{
         return(
-          <Button name={items.name} />
+          <Button name= {item.name}/>
         )
-      })
+       })
        
     }
     {/* <Button name= "App" />
