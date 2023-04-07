@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { YOUTUBE_VIDEO_API } from '../Constants';
 import Videocard from './Videocard';
+import { Link } from 'react-router-dom';
 
 const VideoContainer = () => {
 
@@ -20,8 +21,12 @@ const VideoContainer = () => {
     /* Videocard is taking info as props */
 
 
-   return (<div className='flex overflow-visible'>
-    {Object.values(videos).map(item => <Videocard key={item.id} info={item} />)}
+   return (<div className='flex flex-wrap'>
+    {Object.values(videos).map(item => 
+    <Link to= {"/watch?v=" + item.id}>
+    <Videocard key={item.id} info={item} />
+    </Link>
+    )}
     
     </div>
    );
