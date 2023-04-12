@@ -9,7 +9,7 @@ const Videocard = ({info}) => {
     
 
   return(
-    <div className='p-3 m-2 w-80 shadow-lg bg-slate-50 h-80 overflow-hidden'>
+    <div className='p-3 m-2 w-72 shadow-lg bg-slate-50 h-72 overflow-hidden'>
         <img  classname='rounded-lg' src= {thumbnails?.medium?.url} />
         <ul>
             <li className='font-bold'>{title}</li>
