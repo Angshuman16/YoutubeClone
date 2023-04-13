@@ -19,7 +19,21 @@ const CommentsData=  [
      replies:[
        {name:"Zendaya Pathak",
        text:"Hey I loved the video.. Awesome video it was",
-       replies:[],
+       replies:[
+        {name:"Sourav Sarkar",
+        text:"Hey I loved the video.. Awesome video it was",
+        replies:[
+          {
+            name:"Zendaya Pathak",
+            text:"Hey I loved the video.. Awesome video it was",
+           replies:[
+         
+        ],
+          }
+         
+        ],}
+        
+       ],
        },
  
        {name:"Tom Pathak",
