@@ -4,7 +4,7 @@ import CommentsList from "./CommentsList";
 
 
 
-const CommentsData=  [
+const CommentsData=  [ //This is like an API fetched data. Just manualy Written
   //0
    {
      name:"Angshuman Pathak",

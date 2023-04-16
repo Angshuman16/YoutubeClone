@@ -21,4 +21,13 @@ const Videocard = ({info}) => {
   );
 }
 
+ export const ConvertToRedBorder = ({info}) =>{
+  return(
+    <div className='border border-black p-2 m-2'>
+    <Videocard info={info} />
+    </div>
+  );
+ 
+};
+
 export default Videocard
