@@ -22,3 +22,7 @@ export const YOUTUBE_COMMENTS_API=
 "https://youtube.googleapis.com/youtube/v3/comments?maxResults=100&key="+GOOGLE_API_KEY;
 
 
+export const YOUTUBE_SEARCH_API= 
+"http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
+
+

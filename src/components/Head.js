@@ -1,11 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Buttonlist from './Buttonlist'
 import { useDispatch } from 'react-redux'
 
 import { toggleMenu } from '../utils/appSlice'
+import { YOUTUBE_SEARCH_API } from '../Constants'
 
 
 const Head = () => {
+
+  const [SearchQuery,setSearchQuery] = useState("");
+  useEffect(() =>{
+    getSearchSuggestions();
+
+      //make an api call after every key press 
+      // but if the time b/w each key pres is greater than 200ms 
+  },[SearchQuery])
+
+
+  const getSearchSuggestions= async () =>{
+    const data= await fetch(YOUTUBE_SEARCH_API + SearchQuery);
+    const json= await data.json();
+    console.log(json[1]);
+  };
+
+ 
+
+
   const dispatch = useDispatch();
      
   const toggleMenuHandler = () =>{
@@ -30,7 +50,15 @@ const Head = () => {
        
  
         <div className='col-span-10 px-28'>
-            <input className=' border border-gray-400 w-1/2 py-1 px-4 rounded-l-full' type="text" placeholder='Search'/>
+            <input className=' border border-gray-400 w-1/2 py-1 px-4 rounded-l-full'
+             type="text" placeholder='Search'
+             value={SearchQuery}
+             onChange={(e) => setSearchQuery(e.target.value)}
+
+            
+            />
+
+
             <button className='py-1  border border-gray-400 rounded-r-full bg-gray-100 px-5'>
                    🔍
               </button>
