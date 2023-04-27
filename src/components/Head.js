@@ -9,18 +9,35 @@ import { YOUTUBE_SEARCH_API } from '../Constants'
 const Head = () => {
 
   const [SearchQuery,setSearchQuery] = useState("");
+  const [suggestions,setSuggestions]= useState([]);
+  const [showSuggestions,setshowSuggestions]= useState(false);
+
   useEffect(() =>{
-    getSearchSuggestions();
+     
+  const timer=   setTimeout(() => getSearchSuggestions(), 200);
+
+  return () =>{
+    clearTimeout(timer);
+
+  };
+  
 
       //make an api call after every key press 
       // but if the time b/w each key pres is greater than 200ms 
+      // then we call the clearTimeout function and thus move on !
+
+
+
+      
   },[SearchQuery])
 
 
   const getSearchSuggestions= async () =>{
+    // console.log("API CALL - "+ SearchQuery)
     const data= await fetch(YOUTUBE_SEARCH_API + SearchQuery);
     const json= await data.json();
-    console.log(json[1]);
+    setSuggestions(json[1]);
+    
   };
 
  
@@ -34,7 +51,7 @@ const Head = () => {
   return (
 
    
-    <div className="grid grid-flow-col p-5 m-2 shadow-lg">
+    <div className="grid grid-flow-col p-5 m-2 shadow-lg ">
 
         <div className='flex col-span-1'>
         <img className='h-8 cursor-pointer'
@@ -50,18 +67,33 @@ const Head = () => {
        
  
         <div className='col-span-10 px-28'>
+
+          <div >
             <input className=' border border-gray-400 w-1/2 py-1 px-4 rounded-l-full'
              type="text" placeholder='Search'
              value={SearchQuery}
              onChange={(e) => setSearchQuery(e.target.value)}
-
-            
+             onFocus={() => setshowSuggestions(true)}
+             onBlur={() =>setshowSuggestions(false)}
             />
 
 
             <button className='py-1  border border-gray-400 rounded-r-full bg-gray-100 px-5'>
                    🔍
               </button>
+
+          </div>
+
+          {showSuggestions && (
+        <div className='bg-white py-2 fixed px-5 w-[28rem] rounded-lg shadow-lg border border-gray-100'>
+            <ul>
+              {Object.values(suggestions).map(item=>  <li key={item} className='shadow-sm py-2 hover:bg-gray-100 cursor-pointer' > 🔍 {item}</li>)}
+             
+             
+            </ul>
+          </div>)}
+
+
         </div>
         <div className='col-span-1'>
             <img className='h-8' alt="User" src="https://static.thenounproject.com/png/4035892-200.png" />
