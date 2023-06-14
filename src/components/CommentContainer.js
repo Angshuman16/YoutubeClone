@@ -68,7 +68,7 @@ const CommentsData=  [ //This is like an API fetched data. Just manualy Written
 
 const CommentContainer = () => {
   return (
-    <div className="px-5 m-1">
+    <div className="px-5 m-1 py-25">
         <h1 className="text-2xl font-bold">Comments: </h1>
        <CommentsList comments={CommentsData} />
     </div>

@@ -4,13 +4,18 @@ import { useDispatch } from 'react-redux'
 
 import { toggleMenu } from '../utils/appSlice'
 import { YOUTUBE_SEARCH_API } from '../Constants'
-
+import { filterData } from '../utils/filter'
+import Videocard from './Videocard';
+import { Link } from 'react-router-dom';
 
 const Head = () => {
 
   const [SearchQuery,setSearchQuery] = useState("");
   const [suggestions,setSuggestions]= useState([]);
   const [showSuggestions,setshowSuggestions]= useState(false);
+  const [filterdata,setFiltereddata]=useState();
+  const [allVideos,setallVideos] = useState();
+
 
   useEffect(() =>{
      
@@ -29,7 +34,7 @@ const Head = () => {
 
 
       
-  },[SearchQuery])
+  },[SearchQuery]);
 
 
   const getSearchSuggestions= async () =>{
@@ -37,6 +42,8 @@ const Head = () => {
     const data= await fetch(YOUTUBE_SEARCH_API + SearchQuery);
     const json= await data.json();
     setSuggestions(json[1]);
+    setallVideos(json[1]);
+    console.log(setallVideos);
     
   };
 
@@ -78,9 +85,15 @@ const Head = () => {
             />
 
 
-            <button className='py-1  border border-gray-400 rounded-r-full bg-gray-100 px-5'>
+            <button className='py-1  border border-gray-400 rounded-r-full bg-gray-100 px-5' 
+            
+            
+            >
                    🔍
               </button>
+
+           
+              
 
           </div>
 
@@ -102,4 +115,4 @@ const Head = () => {
   )
 }
 
-export default Head
+export default Head;

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { YOUTUBE_VIDEO_API } from '../Constants';
 import Videocard,{ConvertToRedBorder} from './Videocard';
 import { Link } from 'react-router-dom';
+import WatchPage from './WatchPage';
 
 const VideoContainer = () => {
 
@@ -24,11 +25,12 @@ const VideoContainer = () => {
 
 
    return (<div className='flex flex-wrap'>
-
-    {videos[0] && <ConvertToRedBorder info={videos[0]} />}
+{/* 
+    {videos[0] && <ConvertToRedBorder info={videos[0]} />} */}
     {Object.values(videos).map(item => 
     <Link to= {"/watch?v=" + item.id}>
     <Videocard key={item.id} info={item} />
+    <WatchPage key={item.id} info={item} />
     </Link>
     )}
     
