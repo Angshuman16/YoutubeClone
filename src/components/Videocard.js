@@ -1,8 +1,12 @@
 import React from 'react'
 
+
 const Videocard = ({info}) => {
  
     console.log(info);
+
+
+
 
     const {statistics,snippet} = info;
     const {channelTitle,title, thumbnails}= snippet; 
@@ -15,6 +19,7 @@ const Videocard = ({info}) => {
             <li className='font-bold'>{title}</li>
             <li>{channelTitle}</li>
             <li> {statistics.viewCount} views</li>
+            <li>{statistics.likeCount} Likes</li>
         </ul>
       
     </div>

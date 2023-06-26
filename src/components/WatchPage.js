@@ -2,27 +2,42 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { closeMenu } from '../utils/appSlice';
 import { useSearchParams } from 'react-router-dom';
-import { YOUTUBE_COMMENTS_API } from '../Constants';
+
 import CommentContainer from './CommentContainer';
 import { YOUTUBE_VIDEO_API } from '../Constants';
+import VideoComponent from './VideoComponent';
+import VideoDetails from './VideoDetails';
+
 
 
 
 
 const WatchPage = () => {
 
-   
 
- 
+
+  
+
 
     const[searchParams]= useSearchParams();
     console.log(searchParams.get("v"));
+    
+   
+    const result= VideoComponent.filter(videos=>videos.id==searchParams.get("v"));
+    const data=result[0];
+    {console.log(data)};
+
 
 
   const dispatch=useDispatch();
   useEffect(()=>{
    dispatch(closeMenu());
   },[])
+  
+
+ 
+  
+
 
 
 
@@ -35,8 +50,9 @@ const WatchPage = () => {
       title="YouTube video player"  allow="accelerometer; autoplay; 
       clipboard-write; encrypted-media; gyroscope; picture-in-picture; 
       web-share"></iframe>
+      
 
-      <p></p>
+       <VideoDetails data={data} />
           
     </div>
     <div className='bg-slate-400 my-20 h-52'>
