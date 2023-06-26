@@ -6,7 +6,7 @@ import { useSearchParams } from 'react-router-dom';
 import CommentContainer from './CommentContainer';
 import { YOUTUBE_VIDEO_API } from '../Constants';
 import VideoComponent from './VideoComponent';
-import VideoDetails from './VideoDetails';
+import VideoData from './VideoData';
 
 
 
@@ -22,10 +22,10 @@ const WatchPage = () => {
     const[searchParams]= useSearchParams();
     console.log(searchParams.get("v"));
     
-   
-    const result= VideoComponent.filter(videos=>videos.id==searchParams.get("v"));
+    const VideoDetails = VideoComponent();
+    const result= VideoDetails.filter(videos=>videos.id==searchParams.get("v"));
     const data=result[0];
-    {console.log(data)};
+    {console.log(result)};
 
 
 
@@ -52,7 +52,7 @@ const WatchPage = () => {
       web-share"></iframe>
       
 
-       <VideoDetails data={data} />
+       <VideoData data={data} />
           
     </div>
     <div className='bg-slate-400 my-20 h-52'>
@@ -61,11 +61,6 @@ const WatchPage = () => {
     </div>
 
     </>
-   
-
-   
-
-
    
   )
 }
