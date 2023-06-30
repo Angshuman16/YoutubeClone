@@ -4,8 +4,8 @@ import "./App.css";
 
 import { Provider } from "react-redux";
 import store from "./utils/store";
-import { Router, RouterProvider, createBrowserRouter } from "react-router-dom";
-import { Children } from "react";
+import {  RouterProvider, createBrowserRouter } from "react-router-dom";
+
 import Maincomponent from "./components/Maincomponent";
 import WatchPage from "./components/WatchPage";
 

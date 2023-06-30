@@ -28,15 +28,7 @@ const WatchPage = () => {
   useEffect(()=>{
    dispatch(closeMenu());
   })
-  
 
- 
-  
-
-
-
-
-  
   return (
     <>
     

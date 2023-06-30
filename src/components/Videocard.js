@@ -14,7 +14,7 @@ const Videocard = ({info}) => {
 
   return(
     <div className='p-3 m-2 w-72 shadow-lg bg-slate-50 h-72 overflow-hidden hover:scale-110' >
-        <img  className='rounded-lg' src= {thumbnails?.medium?.url} />
+        <img alt="kuchbhi1" className='rounded-lg' src= {thumbnails?.medium?.url} />
         <ul>
             <li className='font-bold'>{title}</li>
             <li>{channelTitle}</li>

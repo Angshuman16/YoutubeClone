@@ -15,7 +15,7 @@ const VideoData = ({data}) => {
       setLikeCount(data?.statistics?.likeCount);
       console.log(LikeCount);
       
-    }, [data?.statistics?.likeCount]);
+    }, [LikeCount]);
 
     
 
