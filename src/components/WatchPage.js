@@ -44,7 +44,7 @@ const WatchPage = () => {
   
   return (
     <>
-    <div className='flex flex-row'>
+    
     <div className='p-5 m-2 my-20'>
       <iframe width="900" height="450" src={"https://www.youtube.com/embed/"+ searchParams.get("v")}
       title="YouTube video player"  allow="accelerometer; autoplay; 
@@ -55,10 +55,10 @@ const WatchPage = () => {
        <VideoData data={data} />
           
     </div>
-    <div className='bg-slate-400 my-20 h-52'>
+   
      <CommentContainer />
-     </div>
-    </div>
+     
+    
 
     </>
    
