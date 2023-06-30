@@ -11,7 +11,7 @@ const Buttonlist = () => {
     {
        Object.values(popular).map(item =>{
         return(
-          <Button name= {item.name}/>
+          <Button key={item.name} name= {item.name}/>
         )
        })
        

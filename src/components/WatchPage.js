@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { closeMenu } from '../utils/appSlice';
 import { useSearchParams } from 'react-router-dom';
 
 import CommentContainer from './CommentContainer';
-import { YOUTUBE_VIDEO_API } from '../Constants';
+
 import VideoComponent from './VideoComponent';
 import VideoData from './VideoData';
 
@@ -14,16 +14,11 @@ import VideoData from './VideoData';
 
 const WatchPage = () => {
 
-
-
-  
-
-
     const[searchParams]= useSearchParams();
     console.log(searchParams.get("v"));
     
     const VideoDetails = VideoComponent();
-    const result= VideoDetails.filter(videos=>videos.id==searchParams.get("v"));
+    const result= VideoDetails.filter(videos=>videos.id===searchParams.get("v"));
     const data=result[0];
     {console.log(result)};
 
@@ -32,7 +27,7 @@ const WatchPage = () => {
   const dispatch=useDispatch();
   useEffect(()=>{
    dispatch(closeMenu());
-  },[])
+  })
   
 
  

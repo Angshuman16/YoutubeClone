@@ -9,7 +9,7 @@ export const popular = [
 	{ name: "Indian Food", url: "akshaysaini" },
 	{ name: "C++", url: "reactjs" },
 	{ name: "Namaste Javascript", url: "namastejs" },
-	{ name: "tmkoc", url: "tmkoc" },
+	{ name: "TCS", url: "TCS" },
 ];
 
 const GOOGLE_API_KEY= "AIzaSyBednHm605j2BdnnePgP-NLu7jPVzKOj1o";
