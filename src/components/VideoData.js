@@ -47,6 +47,7 @@ const VideoData = ({data}) => {
     <div>
     <div>
         <p className="font-bold text-lg py-2">{data?.snippet?.title}</p>
+        {/* <p className="font-bold text-lg py-2"> Description: {data?.snippet?.description}</p> */}
         <div className='flex flex-wrap'>
          <p className=" p-2 my-5 text-xl font-bold">{data?.snippet?.channelTitle}</p>  
          <div className='p-2 m-2 text-xl'>
@@ -66,11 +67,12 @@ const VideoData = ({data}) => {
          )}
          
          
+         
          </div>
          </div>
-  </div>
+    </div>
 
-    <div className='flex flex-wrap'>
+<div className='flex flex-wrap'>
 
 
 

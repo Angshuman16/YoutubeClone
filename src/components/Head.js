@@ -19,7 +19,7 @@ const Head = () => {
 
   useEffect(() =>{
      
-  const timer=   setTimeout(() => getSearchSuggestions(), 200);
+  const timer= setTimeout(() => getSearchSuggestions(), 200);
 
   return () =>{
     clearTimeout(timer);
@@ -42,8 +42,7 @@ const Head = () => {
     const data= await fetch(YOUTUBE_SEARCH_API + SearchQuery);
     const json= await data.json();
     setSuggestions(json[1]);
-    setallVideos(json[1]);
-    console.log(setallVideos);
+   
     
   };
 
@@ -85,10 +84,7 @@ const Head = () => {
             />
 
 
-            <button className='py-1  border border-gray-400 rounded-r-full bg-gray-100 px-5' 
-            
-            
-            >
+            <button className='py-1  border border-gray-400 rounded-r-full bg-gray-100 px-5' >
                    🔍
               </button>
 
@@ -100,7 +96,7 @@ const Head = () => {
           {showSuggestions && (
         <div className='bg-white py-2 fixed px-5 w-[28rem] rounded-lg shadow-lg border border-gray-100'>
             <ul>
-              {Object.values(suggestions).map(item=>  <li key={item} className='shadow-sm py-2 hover:bg-gray-100 cursor-pointer' > 🔍 {item}</li>)}
+              {Object.values(suggestions).map(item =>  <li key={item} className='shadow-sm py-2 hover:bg-gray-100 cursor-pointer' > 🔍 {item} </li>)}
              
              
             </ul>
