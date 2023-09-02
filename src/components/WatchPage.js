@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { closeMenu } from '../utils/appSlice';
 import { useSearchParams } from 'react-router-dom';
 import LiveChat from './LiveChat';
+import { formatCompactNumber } from '../utils/Helper';
 
 import CommentContainer from './CommentContainer';
 

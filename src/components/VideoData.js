@@ -1,4 +1,5 @@
 import React, { useState,useEffect } from 'react'
+import { formatCompactNumber } from '../utils/Helper';
 
 
 const VideoData = ({data}) => {
@@ -46,24 +47,37 @@ const VideoData = ({data}) => {
 
     <div>
     <div>
-        <p className="font-bold text-lg py-2">{data?.snippet?.title}</p>
+    <div className='font-medium text-[18px]'>{data?.snippet?.title}</div>
         {/* <p className="font-bold text-lg py-2"> Description: {data?.snippet?.description}</p> */}
         <div className='flex flex-wrap'>
-         <p className=" p-2 my-5 text-xl font-bold">{data?.snippet?.channelTitle}</p>  
+        <img className='rounded-full mt-6  w-10 h-10' alt='thumbnail' src={data?.snippet?.thumbnails?.default?.url} />
+        <div className='flex flex-col justify-center ml-2 px-4'>
+                                            <div className='font-bold text-[16px]'>{data?.snippet?.channelTitle}</div>
+                                            <div className='text-gray-500 text-[12px]'>{formatCompactNumber(data?.statistics?.viewCount)} Subscriber</div>
+                                        </div>
+
+           
          <div className='p-2 m-2 text-xl'>
      { isSubcribed?(
-         <button
-          className='p-2 m-2 bg-red-600 rounded-xl  font-bold' 
-          onClick={() => setSubscribe(false)} >
+        //  <button
+        //   className='p-2 m-2 bg-red-600 rounded-xl  font-bold' 
+        //   onClick={() => setSubscribe(false)} >
+        <button className='bg-black rounded-full p-2 px-4 ml-2 text-white'
+        onClick={() => setSubscribe(false)}>
+          Subscribed</button>
 
-         Subscribed</button>
+        // Subscribed</button>
          ):(
-
-          <button
-          className='p-2 m-2 bg-red-600 rounded-xl  font-bold' 
+           
+          <button className='bg-black rounded-full p-2 px-4 ml-2 text-white'
           onClick={() => setSubscribe(true)}>
-            Subscribe
-          </button>
+          Subscribe</button>
+
+          // <button
+          // className='p-2 m-2 bg-red-600 rounded-xl  font-bold' 
+          // onClick={() => setSubscribe(true)}>
+          //   Subscribe
+          // </button>
          )}
          
          

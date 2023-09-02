@@ -10,6 +10,9 @@ export const popular = [
 	{ name: "C++", url: "reactjs" },
 	{ name: "Namaste Javascript", url: "namastejs" },
 	{ name: "TCS", url: "TCS" },
+	{ name: "Akshay Saini", url: "akshay" },
+	{ name: "Web Dev", url: "w3schools" },
+	
 ];
 
 const GOOGLE_API_KEY= "AIzaSyBednHm605j2BdnnePgP-NLu7jPVzKOj1o";

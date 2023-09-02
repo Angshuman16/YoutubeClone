@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 
 import { toggleMenu } from '../utils/appSlice'
 import { YOUTUBE_SEARCH_API } from '../Constants'
+import DarkMode from './DarkMode'
 
 
 
@@ -104,6 +105,7 @@ const Head = () => {
 
 
         </div>
+        <DarkMode />
         <div className='col-span-1'>
             <img className='h-8' alt="User" src="https://static.thenounproject.com/png/4035892-200.png" />
         </div>
