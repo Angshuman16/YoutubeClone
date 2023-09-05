@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { YOUTUBE_VIDEO_API } from '../Constants';
 import Videocard from './Videocard';
 import { Link } from 'react-router-dom';
+import Shimmer from './Shimmer';
 
 
 
@@ -26,6 +27,7 @@ const VideoContainer = () => {
 
     /* Videocard is taking info as props */
 
+    if (!videos.length) return <Shimmer /> //early return
 
    return (
    <div className='flex flex-wrap'>
@@ -38,15 +40,10 @@ const VideoContainer = () => {
 
 )}
 
-
-  
     
     </div>
    );
 
    
-
-
-
 };
 export default VideoContainer

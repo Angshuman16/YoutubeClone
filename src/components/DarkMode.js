@@ -1,19 +1,51 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import VideoContainer from "./VideoContainer";
 
 
 const DarkMode = () => {
-    const [mode,setmode] = useState(true);
+   
+
+    const [mode,setmode] = useState("light");
+
+    const [theme,setTheme] = useState("light");
+
+
+    
+
+    useEffect(() =>{
+        if(theme === "dark")
+        {
+            document.documentElement.classList.add("dark");
+
+        }
+        else{
+            document.documentElement.classList.remove("dark");
+        }
+
+    },[theme])
+
+    const handleThemeSwitch = () =>{
+        setTheme(theme === "dark" ? "light": "dark");
+    }
 
     const toggleButton = () =>{
-        setmode(!mode);
+        if(mode === "light")
+        {
+            setmode("dark");
+        }
+        if(mode==="dark")
+        {
+            setmode("light");
+        }
     }
+
+    
+    console.log(mode);
     return (
         <div className='dark_mode'>
-            {mode?
-           (<button  className="bg-yellow-300 text-black rounded-full p-2" onClick={toggleButton} >
-             Light</button>):(<button  className=" bg-black text-white rounded-full p-2" onClick={toggleButton} >
-             Dark</button>)}
+            <button className="w-25 p-2  h-10 rounded-xl dark:bg-black dark:text-white bg-blue-100" onClick={handleThemeSwitch}>Theme</button>
         </div>
+        
     );
 };
 

@@ -4,9 +4,9 @@ import VideoContainer from './VideoContainer'
 
 const Maincomponent = () => {
   return (
-    <div>
-        <Buttonlist />
-        <VideoContainer /> 
+    <div className='dark:bg-black' >
+      <Buttonlist/>
+      <VideoContainer/>
     </div>
   )
 }
