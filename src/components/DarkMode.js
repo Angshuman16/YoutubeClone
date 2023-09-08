@@ -43,7 +43,7 @@ const DarkMode = () => {
     console.log(mode);
     return (
         <div className='dark_mode'>
-            <button className="w-25 p-2  h-10 rounded-xl dark:bg-black dark:text-white bg-blue-100" onClick={handleThemeSwitch}>Theme</button>
+            <button className="w-25 p-2  h-10 rounded-xl dark:bg-yellow-200 bg-blue-100" onClick={handleThemeSwitch}>Theme</button>
         </div>
         
     );

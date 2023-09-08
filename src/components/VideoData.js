@@ -52,8 +52,8 @@ const VideoData = ({data}) => {
         <div className='flex flex-wrap'>
         <img className='rounded-full mt-6  w-10 h-10' alt='thumbnail' src={data?.snippet?.thumbnails?.default?.url} />
         <div className='flex flex-col justify-center ml-2 px-4'>
-                                            <div className='font-bold text-[16px]'>{data?.snippet?.channelTitle}</div>
-                                            <div className='text-gray-500 text-[12px]'>{formatCompactNumber(data?.statistics?.viewCount)} Subscriber</div>
+                                            <div className='font-bold text-[16px] dark:text-white'>{data?.snippet?.channelTitle}</div>
+                                            <div className='text-gray-500  dark:text-white text-[12px]'>{formatCompactNumber(data?.statistics?.viewCount)} Subscriber</div>
                                         </div>
 
            
@@ -62,14 +62,14 @@ const VideoData = ({data}) => {
         //  <button
         //   className='p-2 m-2 bg-red-600 rounded-xl  font-bold' 
         //   onClick={() => setSubscribe(false)} >
-        <button className='bg-black rounded-full p-2 px-4 ml-2 text-white'
+        <button className='bg-black rounded-full dark:bg-red-600 p-2 px-4 ml-2 text-white'
         onClick={() => setSubscribe(false)}>
           Subscribed</button>
 
         // Subscribed</button>
          ):(
            
-          <button className='bg-black rounded-full p-2 px-4 ml-2 text-white'
+          <button className='bg-black rounded-full p-2 px-4 ml-2 dark:bg-red-600 text-white'
           onClick={() => setSubscribe(true)}>
           Subscribe</button>
 
@@ -92,10 +92,15 @@ const VideoData = ({data}) => {
 
    
     
-    <div className='p-2 m-2 text-xl'>{LikeCount}
+    <div className='p-2 m-2 text-xl  dark:text-white '> {LikeCount}
+      
+      
+       
+      
+    
 
      
-     <button className='p-2 m-2 font-bold rounded-xl bg-green-300 ' onClick={handleLikeClick}>
+     <button className='px-4 py-2 m-2 rounded-full text-white bg-black  dark:text-black' onClick={handleLikeClick}>
       {likeButton== true ?(
         <button>Liked</button>
 
@@ -112,8 +117,8 @@ const VideoData = ({data}) => {
 
 
 
-    <div className='p-2 m-2 text-xl'>{data?.statistics?.commentCount}
-    <button className='p-2 m-2 font-bold rounded-xl bg-cyan-200'>Comment</button> </div>
+    <div className='p-2 m-2 text-xl dark:text-white'>{data?.statistics?.commentCount}
+    <button className='p-2 m-2  rounded-full text-white bg-black  dark:text-black'>Comments</button> </div>
 
    
     
@@ -123,14 +128,14 @@ const VideoData = ({data}) => {
          <div className='p-2 m-2 text-xl'>
      { isshared?(
          <button
-          className='p-2 m-2 bg-blue-300 rounded-xl  font-bold' 
+          className='p-2 m-2 rounded-full text-white bg-black  ' 
           onClick={() => setShared(false)} >
 
          Shared</button>
          ):(
 
           <button
-          className='p-2 m-2 bg-blue-300 rounded-xl  font-bold' 
+          className='p-2 m-2 rounded-full text-white bg-black' 
           onClick={() => setShared(true)}>
             Share
           </button>

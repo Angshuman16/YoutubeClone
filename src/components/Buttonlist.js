@@ -5,7 +5,7 @@ import { popular } from '../Constants'
 const Buttonlist = () => {
   return (
     <>
-    <div className='flex overflow-hidden dark:bg-black '>
+    <div className='flex overflow-hidden dark:bg-black m-0 '>
      
       
     {
