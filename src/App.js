@@ -30,7 +30,7 @@ function App() {
   return (
     <Provider store= {store}>
     <div>
-   <Head />
+   <Head theme={"light"} />
    <RouterProvider router={appRouter} />
    </div>
    </Provider>

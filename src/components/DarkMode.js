@@ -2,12 +2,15 @@ import React, { useEffect, useState } from "react";
 import VideoContainer from "./VideoContainer";
 
 
-const DarkMode = () => {
+
+
+
+const DarkMode = ({chooseMode}) => {
    
 
-    const [mode,setmode] = useState("light");
-
     const [theme,setTheme] = useState("light");
+
+    let mode= theme;
 
 
     
@@ -28,25 +31,24 @@ const DarkMode = () => {
         setTheme(theme === "dark" ? "light": "dark");
     }
 
-    const toggleButton = () =>{
-        if(mode === "light")
-        {
-            setmode("dark");
-        }
-        if(mode==="dark")
-        {
-            setmode("light");
-        }
-    }
-
+    console.log(theme);
+   
     
-    console.log(mode);
+    
+   
     return (
         <div className='dark_mode'>
-            <button className="w-25 p-2  h-10 rounded-xl dark:bg-yellow-200 bg-blue-100" onClick={handleThemeSwitch}>Theme</button>
+            {theme=='dark'? <button className="w-25 p-2  h-10 rounded-xl dark:bg-yellow-200 " onClick={handleThemeSwitch}>Dark</button>:
+            <button className="w-25 p-2  h-10 rounded-xl  bg-blue-100" onClick={handleThemeSwitch}>Light</button>}
+
+             {chooseMode(mode) }
+   
+           
+            
         </div>
         
     );
 };
+
 
 export default DarkMode;

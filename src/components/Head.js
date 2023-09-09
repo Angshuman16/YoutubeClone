@@ -9,7 +9,18 @@ import DarkMode from './DarkMode'
 
 
 
-const Head = () => {
+const Head = ({theme}) => {
+
+
+  const [mode,setMode] = useState('light');
+
+  const chooseMode= (mode) =>{
+    setMode(mode);
+  };
+   
+
+
+  //var logo_src = mode=='dark' ?'https://logodix.com/logo/770308.jpg':'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/2560px-YouTube_Logo_2017.svg.png';
 
   const [SearchQuery,setSearchQuery] = useState("");
   const [suggestions,setSuggestions]= useState([]);
@@ -46,7 +57,7 @@ const Head = () => {
    
     
   };
-
+ 
  
 
 
@@ -57,19 +68,23 @@ const Head = () => {
   };
   return (
 
-   
+    
     <div className="grid grid-flow-col p-5 m-0 shadow-lg dark:bg-black">
 
         <div className='flex col-span-1 '>
+
+         
         <img className='h-8 cursor-pointer'
           onClick={() => toggleMenuHandler()}
         alt="menu" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAARVBMVEX///8jHyAgHB0OBQgMAAWlpKQpJSaenZ309PUAAAAIAAD8/Pz5+fna2tqop6dvbW1oZmevrq4tKivFxMQYExRiYGC+vr7Dc4WrAAABB0lEQVR4nO3cS3LCMBAFQGIIIBPbhN/9jxqSyiIsTUnlydB9g1eSNV5MvdUKAAAAAAAAAAAAAAAAXtEwvscwDk3yHabSb2Loy/TRIOHUv8XRH+sHHMrSqR6U+hd1jHSE90P8lHC2/Lc0/0vzMy3WMdynxaFBwu+Jv4uh0cQHAAAAAAAAAIB59jG0ijdcT9sYTtcmK0PncumiuJRz/YD7bbf0ut4f3br+GvQt2PblrXrC3WbpUA/6sXrC/GeY/zvM/5aGmofHZiu0S//M/GoVDwAAAAAAAAAAZsjeuRerN1HL7hPy95fm76DNnzD/Lc3/0rxAJ3v+Xn0AAAAAAAAAAAAAAAD4T74AYhs1O+vt3ioAAAAASUVORK5CYII="/>
         
-        <a href="/">
-        <img className='h-8 mx-2'
+        {mode=='dark'?  <img className='h-[8rem] w-[9rem] items-center'
         
-         alt="youtube-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/2560px-YouTube_Logo_2017.svg.png" />
-          </a>
+        alt="youtube-logo" src='https://cdn.gtricks.com/2021/04/how-to-enable-youtube-dark-mode-on-pc-and-android-ios-1280x720.jpg' />:<img className='h-8 mx-2 dark:opacity-90'
+        
+        alt="youtube-logo" src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/2560px-YouTube_Logo_2017.svg.png' /> } 
+       
+        
         </div>
        
  
@@ -105,7 +120,7 @@ const Head = () => {
 
 
         </div>
-        <DarkMode />
+        <DarkMode  chooseMode={chooseMode}/>
         <div className='col-span-1'>
             <img className='h-8' alt="User" src="https://static.thenounproject.com/png/4035892-200.png" />
         </div>
